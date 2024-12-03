@@ -1,0 +1,41 @@
+
+<div *ngIf="movie; else loading" class="movie-details">
+    <button (click)="goBack()" class="back-button">🔙 Back to Movies</button>
+    
+  
+    <h1>{{ movie.title }}</h1>
+    <div class="summary-section">
+      <img [src]="movie?.poster" alt="{{ movie?.title }} poster" />
+      <p>
+        <strong>Summary:</strong> {{ movie?.summary }}
+      </p>
+    </div>
+    
+    <h2>Details </h2>
+    <table class="details-table">
+      <tr>
+        <td><strong>Box office</strong></td>
+        <td>${{ movie?.box_office }}million</td>
+      </tr>
+      <tr>
+        <td><strong>Budget</strong></td>
+        <td>${{ movie?.budget }}million</td>
+      </tr>
+      <tr>
+        <td><strong>Duration</strong></td>
+        <td>{{ movie?.duration|duration }}</td>
+      </tr>
+      <tr>
+        <td><strong>Producers</strong></td>
+        <td>{{ movie?.producers }}</td>
+      </tr>
+      <tr>
+        <td><strong>Cinematographers</strong></td>
+        <td>{{ movie?.cinematographers }}</td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #loading>
+    <p>Film Details loading...</p>
+  </ng-template>
+  

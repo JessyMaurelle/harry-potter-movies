@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/mini.css/dist/mini-dark.min.css";
+/*@import "../node_modules/mini.css/dist/mini-dark.min.css";*/
+body {
+    background-color: #8db4dd; /* Bleu vif */
+    color: #0a0000; /* Texte blanc pour un bon contraste */
+    margin: 0; /* Supprimez les marges du navigateur */
+    font-family: Arial, sans-serif; /* Ajoutez une police plus lisible */
+  }
+  

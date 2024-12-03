@@ -1,0 +1,40 @@
+<div class="movie-list">
+<h2 style="margin-bottom: 16px; margin-left: 20px;">Filters</h2>
+<div style="display: flex; align-items: center; gap: 8px; margin-left: 20px;">
+  <div >
+    <label for="titleFilter" style="margin-right: 10px;">Title </label>
+    <input
+      type="text"
+      placeholder="With Tilte "
+      
+      (input)="updateTitleFilter($event)"
+    />
+  </div>
+  <div >
+    <label for="titleFilter" style="margin-right: 20px;">Release Year</label>
+    <input
+      type="text"
+      placeholder="With Year (ex: 2001)"
+     
+      (input)="updateYearFilter($event)"
+    />
+  </div>
+</div>
+<div *ngIf="filteredMovies.length === 0">No Film found</div>
+
+
+<ul>
+ <li *ngFor="let movie of filteredMovies">
+    <h3>{{movie.title}}</h3>
+    <div class="movie-details">
+        <p>
+            <span class="movie-info">Release date: {{ movie.release_date | date: 'yyyy-MM-dd'   }}</span>
+            <span class="movie-info">Budget : {{ movie.budget | currency:'USD':'symbol':'1.0-0' }} million </span>
+            <span class="movie-info">Duration : {{ movie.duration | duration }}</span>
+        </p>
+        <button class="details-button"  [routerLink]="['/movies', movie.id]">Détails</button>
+    </div>
+
+  </li>
+</ul>
+</div>

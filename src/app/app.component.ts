@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+
 
 @Component({
   selector: 'app-root',
