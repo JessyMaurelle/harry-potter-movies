@@ -3,8 +3,9 @@ import { MoviesService } from '../../services/movies.service';
 import { CommonModule } from '@angular/common';
 import { DurationPipe } from '../../duration.pipe';
 import { FormsModule } from '@angular/forms';
-import { BehaviorSubject, combineLatest } from 'rxjs';
+import { BehaviorSubject, combineLatest, take } from 'rxjs';
 import { RouterModule } from '@angular/router';
+
 
 
 @Component({
@@ -24,7 +25,7 @@ export class MovieListComponent {
   constructor(private moviesService: MoviesService){}
 
   ngOnInit(): void{
-    this.moviesService.getAllMovies().subscribe((data:any) =>{
+    this.moviesService.getAllMovies().pipe(take(1)).subscribe((data:any) =>{
       this.movies = data;
       
       combineLatest([this.titleFilter$, this.yearFilter$]).subscribe(
